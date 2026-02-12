@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Command tier placeholder image</title>
+  <desc id="desc">Abstract operational dashboard with control rings.</desc>
+  <defs>
+    <linearGradient id="g3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#171b21" />
+      <stop offset="100%" stop-color="#2a303a" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#g3)" />
+  <rect x="100" y="100" width="1000" height="600" rx="18" fill="#0f141a" stroke="#4f5968" stroke-width="2" />
+  <g stroke="#394150" stroke-width="1" opacity="0.5">
+    <path d="M150 190h900M150 280h900M150 370h900M150 460h900M150 550h900M150 640h900" />
+    <path d="M250 140v520M400 140v520M550 140v520M700 140v520M850 140v520" />
+  </g>
+  <circle cx="820" cy="430" r="160" fill="#6e42ff" opacity="0.22" />
+  <circle cx="820" cy="430" r="118" fill="none" stroke="#6e42ff" stroke-width="4" />
+  <circle cx="820" cy="430" r="78" fill="none" stroke="#f1b44c" stroke-width="5" />
+  <rect x="190" y="220" width="360" height="32" rx="8" fill="#f1b44c" />
+  <rect x="190" y="280" width="300" height="18" rx="8" fill="#7f8da1" />
+  <rect x="190" y="320" width="340" height="18" rx="8" fill="#7f8da1" />
+  <rect x="190" y="360" width="280" height="18" rx="8" fill="#7f8da1" />
+</svg>

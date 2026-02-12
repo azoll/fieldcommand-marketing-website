@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="820" viewBox="0 0 1280 820" role="img" aria-labelledby="title desc">
+  <title id="title">FieldCommand job command center mock</title>
+  <desc id="desc">Dashboard mock showing job costing, margin alerts, labor utilization, and change order status.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#141a22"/>
+      <stop offset="100%" stop-color="#232b35"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="820" rx="24" fill="url(#bg)"/>
+  <rect x="36" y="32" width="1208" height="64" rx="12" fill="#0f141b" stroke="#2f3b4c"/>
+  <rect x="56" y="52" width="220" height="24" rx="8" fill="#f28c28"/>
+  <rect x="1030" y="50" width="194" height="28" rx="10" fill="#b75f08"/>
+
+  <rect x="36" y="116" width="360" height="312" rx="14" fill="#10161f" stroke="#334255"/>
+  <rect x="56" y="140" width="210" height="18" rx="8" fill="#f3f6fb" opacity="0.85"/>
+  <rect x="56" y="176" width="318" height="12" rx="6" fill="#6f8097"/>
+  <rect x="56" y="201" width="280" height="12" rx="6" fill="#6f8097"/>
+  <rect x="56" y="226" width="318" height="12" rx="6" fill="#6f8097"/>
+  <rect x="56" y="258" width="120" height="90" rx="12" fill="#f28c28" opacity="0.2"/>
+  <rect x="188" y="258" width="186" height="90" rx="12" fill="#1b2431"/>
+  <rect x="56" y="360" width="318" height="48" rx="10" fill="#b75f08"/>
+
+  <rect x="416" y="116" width="828" height="312" rx="14" fill="#10161f" stroke="#334255"/>
+  <rect x="438" y="140" width="280" height="18" rx="8" fill="#f3f6fb" opacity="0.85"/>
+  <rect x="438" y="174" width="786" height="1" fill="#334255"/>
+  <rect x="438" y="194" width="188" height="16" rx="8" fill="#6f8097"/>
+  <rect x="438" y="226" width="744" height="22" rx="10" fill="#1d2837"/>
+  <rect x="438" y="260" width="744" height="22" rx="10" fill="#1d2837"/>
+  <rect x="438" y="294" width="744" height="22" rx="10" fill="#1d2837"/>
+  <rect x="438" y="328" width="744" height="22" rx="10" fill="#1d2837"/>
+  <rect x="438" y="226" width="520" height="22" rx="10" fill="#f28c28" opacity="0.75"/>
+  <rect x="438" y="294" width="410" height="22" rx="10" fill="#f28c28" opacity="0.45"/>
+
+  <rect x="36" y="448" width="1208" height="336" rx="14" fill="#10161f" stroke="#334255"/>
+  <rect x="56" y="470" width="310" height="18" rx="8" fill="#f3f6fb" opacity="0.85"/>
+  <rect x="56" y="506" width="170" height="120" rx="12" fill="#1d2837"/>
+  <rect x="238" y="506" width="170" height="120" rx="12" fill="#1d2837"/>
+  <rect x="420" y="506" width="170" height="120" rx="12" fill="#1d2837"/>
+  <rect x="602" y="506" width="170" height="120" rx="12" fill="#1d2837"/>
+  <rect x="784" y="506" width="440" height="250" rx="12" fill="#1b2431"/>
+  <circle cx="925" cy="632" r="88" fill="#f28c28" opacity="0.15"/>
+  <path d="M925 632L925 564" stroke="#f28c28" stroke-width="18" stroke-linecap="round"/>
+  <path d="M925 632L980 660" stroke="#f28c28" stroke-width="18" stroke-linecap="round"/>
+  <text x="56" y="670" fill="#cfd8e6" font-family="Manrope, Inter, sans-serif" font-size="26" font-weight="700">Job Command Center</text>
+  <text x="56" y="704" fill="#8ea0ba" font-family="Manrope, Inter, sans-serif" font-size="20">Live costing, margin warnings, and billed change orders in one place.</text>
+</svg>
