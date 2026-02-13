@@ -142,7 +142,7 @@ export const content = {
         key: 'command',
         name: 'Command',
         title: 'Operational Control Tier',
-        seats: 25,
+        seats: 20,
         audience: 'Owners running multi-crew, multi-phase work.',
         monthly: 399,
         leadIn: 'Everything in Control, plus:',

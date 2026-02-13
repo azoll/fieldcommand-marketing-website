@@ -1,7 +1,7 @@
 const seatsByTier = {
   core: 5,
   control: 10,
-  command: 25
+  command: 20
 };
 
 export function renderCapabilities(items) {
