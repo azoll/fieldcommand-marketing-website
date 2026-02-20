@@ -12,6 +12,8 @@ function renderHeroBullets(items) {
 }
 
 export function renderHero(hero) {
+  const trustNote = hero.trustNote ? `<p class="hero-trust">${hero.trustNote}</p>` : '';
+
   return `
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-texture" aria-hidden="true"></div>
@@ -24,9 +26,9 @@ export function renderHero(hero) {
             <p class="hero-detail">${hero.detail}</p>
             <div class="hero-ctas">
               <a class="btn btn-primary" href="#pricing" data-action="${hero.primaryCta.action}" data-plan="${hero.primaryCta.plan}" data-source="hero-primary">${hero.primaryCta.label}</a>
-              <a class="btn btn-secondary" href="/walkthrough.html" data-action="${hero.secondaryCta.action}">${hero.secondaryCta.label}</a>
+              <a class="btn btn-secondary" href="${hero.secondaryCta.href || '/walkthrough.html'}" data-action="${hero.secondaryCta.action}">${hero.secondaryCta.label}</a>
             </div>
-            <p class="hero-trust">${hero.trustNote}</p>
+            ${trustNote}
           </div>
           <figure class="hero-product card-surface">
             <img src="${hero.productVisual.src}" alt="${hero.productVisual.alt}" loading="lazy" />

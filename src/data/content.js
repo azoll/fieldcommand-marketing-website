@@ -22,9 +22,13 @@ export const content = {
     subtitle: 'See job health early enough to protect margin, not explain misses later.',
     detail:
       'Track labor, job costing, change orders, and billing status across active work without waiting for end-of-month cleanup.',
-    trustNote: 'Start a 7-day trial. No call required.',
+    trustNote: '',
     primaryCta: { label: 'Start free trial', action: 'start-trial', plan: 'control' },
-    secondaryCta: { label: 'Watch walkthrough', action: 'watch-walkthrough' },
+    secondaryCta: {
+      label: 'Request a demo',
+      action: 'request-demo',
+      href: 'https://calendar.app.google/AqN36k96QYokL3y18?src=general'
+    },
     productVisual: {
       src: './public/images/job-command-center-mock.svg',
       alt: 'FieldCommand job command center showing live costing, alerts, and billed change orders',

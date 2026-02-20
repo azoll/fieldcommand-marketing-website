@@ -7,14 +7,23 @@ function getCheckoutEndpoint() {
 }
 
 export async function startCheckout({ plan, email, source }) {
-  const priceId = config.stripePriceIds[plan] || plan;
+  const priceId = config.stripePriceIds[plan] || '';
+  const payload = {
+    plan,
+    source,
+    email,
+    siteOrigin: window.location.origin
+  };
+
+  if (priceId) payload.priceId = priceId;
+  if (config.appOrigin) payload.appOrigin = config.appOrigin;
 
   track('trial_cta_clicked', { plan, source });
 
   const response = await fetch(getCheckoutEndpoint(), {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ priceId, plan, email, appOrigin: config.appOrigin, source })
+    body: JSON.stringify(payload)
   });
 
   if (!response.ok) {
