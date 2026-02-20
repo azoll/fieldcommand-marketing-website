@@ -4,7 +4,7 @@ function renderFeatureList(tier) {
   return `${lead}${features}`;
 }
 
-export function renderPricing(pricing, demoBaseUrl) {
+export function renderPricing(pricing) {
   const cards = pricing.tiers
     .map((tier) => {
       const annual = Math.round(tier.monthly * 0.8);
@@ -24,7 +24,7 @@ export function renderPricing(pricing, demoBaseUrl) {
             <p class="price" data-monthly="$${tier.monthly}/mo" data-annual="$${annual}/mo">$${tier.monthly}/mo</p>
             <p class="price-note" data-monthly="or save 20% annually" data-annual="billed annually (save 20%)">or save 20% annually</p>
           </div>
-          <a class="btn ${tier.popular ? 'btn-primary' : 'btn-secondary'}" href="${demoBaseUrl}?src=${tier.ctaSrc}">Request demo</a>
+          <a class="btn ${tier.popular ? 'btn-primary' : 'btn-secondary'}" href="#" data-action="start-trial" data-plan="${tier.stripePriceId}" data-source="pricing-${tier.key}">Start free trial</a>
         </article>
       `;
     })
