@@ -5,13 +5,15 @@ export const content = {
     tagline: 'Field service CRM for commercial contractors.'
   },
   cta: {
-    requestDemo: 'https://calendar.app.google/AqN36k96QYokL3y18?src=general'
+    requestDemo: 'https://calendar.app.google/AqN36k96QYokL3y18?src=general',
+    watchWalkthrough: '/walkthrough.html'
   },
   nav: {
     links: [
-      { label: "Who's it for", href: '#who-its-for' },
+      { label: "Who's it for", href: '/who-its-for.html' },
       { label: 'Pricing', href: '#pricing' },
-      { label: 'Support', href: '#contact' }
+      { label: 'Support', href: '#contact' },
+      { label: 'Request a demo', href: 'https://calendar.app.google/AqN36k96QYokL3y18?src=general' }
     ]
   },
   hero: {
@@ -20,9 +22,13 @@ export const content = {
     subtitle: 'See job health early enough to protect margin, not explain misses later.',
     detail:
       'Track labor, job costing, change orders, and billing status across active work without waiting for end-of-month cleanup.',
-    trustNote: '15-minute walkthrough. We will tell you quickly if it is a fit.',
-    primaryCta: { label: 'Request demo', href: 'https://calendar.app.google/AqN36k96QYokL3y18?src=general' },
-    secondaryCta: { label: "See if it's a fit", href: '#who-its-for' },
+    trustNote: '',
+    primaryCta: { label: 'Start free trial', action: 'start-trial', plan: 'control' },
+    secondaryCta: {
+      label: 'Request a demo',
+      action: 'request-demo',
+      href: 'https://calendar.app.google/AqN36k96QYokL3y18?src=general'
+    },
     productVisual: {
       src: './public/images/job-command-center-mock.svg',
       alt: 'FieldCommand job command center showing live costing, alerts, and billed change orders',
@@ -48,7 +54,6 @@ export const content = {
       body:
         "Track what is quoted, won, active, and closed without duct-taped systems. Build tighter estimates and keep field updates tied to the job record.",
       fit: 'For commercial electrical contractors who need operating discipline before complexity scales.',
-      cta: 'https://calendar.app.google/AqN36k96QYokL3y18?src=core',
       image: {
         src: './public/images/core-placeholder.svg',
         alt: 'Crew reviewing plans near electrical panel'
@@ -61,7 +66,6 @@ export const content = {
       body:
         "See labor and cost drift as it happens. Track change orders from request to approved to billed so revenue does not stall between the field and office.",
       fit: 'For growing commercial electrical teams that need margin control during execution, not after closeout.',
-      cta: 'https://calendar.app.google/AqN36k96QYokL3y18?src=control',
       image: {
         src: './public/images/control-placeholder.svg',
         alt: 'Clipboard with job notes and conduit layout'
@@ -74,7 +78,6 @@ export const content = {
       body:
         'Forecast outcomes, enforce approvals, and keep multi-crew projects on track. Spot risk early, tighten controls, and reduce owner-only fire drills.',
       fit: 'For commercial electrical contractors and similar multi-crew field contractors managing multi-phase operations.',
-      cta: 'https://calendar.app.google/AqN36k96QYokL3y18?src=command',
       image: {
         src: './public/images/command-placeholder.svg',
         alt: 'Electrical drawings and scheduling board'
@@ -118,7 +121,7 @@ export const content = {
           'Invoicing, deposits, and payments',
           'Mobile field access'
         ],
-        ctaSrc: 'core'
+        stripePriceId: 'core'
       },
       {
         key: 'control',
@@ -136,7 +139,7 @@ export const content = {
           'Crew scheduling and job assignments',
           'QuickBooks sync'
         ],
-        ctaSrc: 'control'
+        stripePriceId: 'control'
       },
       {
         key: 'command',
@@ -153,7 +156,7 @@ export const content = {
           'Multi-crew and multi-project oversight',
           'API access for custom workflows'
         ],
-        ctaSrc: 'command'
+        stripePriceId: 'command'
       }
     ]
   },
@@ -185,6 +188,7 @@ export const content = {
       { label: 'Contact', href: '#contact' },
       { label: 'Log In', href: 'https://app.fieldcommand.io' },
       { label: 'Pricing', href: '#pricing' },
+      { label: 'Who\'s it for', href: './who-its-for.html' },
       { label: 'Privacy Policy', href: './privacy.html' },
       { label: 'Terms of Service', href: './terms.html' }
     ]

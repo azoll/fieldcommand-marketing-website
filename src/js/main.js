@@ -8,6 +8,8 @@ import { renderPricing } from '../sections/pricing.js';
 import { renderFaq } from '../sections/faq.js';
 import { renderContact } from '../sections/contact.js';
 import { renderFooter } from '../sections/footer.js';
+import { startCheckout } from './lib/checkout.js';
+import { config } from './lib/config.js';
 
 function renderApp() {
   const app = document.querySelector('#app');
@@ -19,11 +21,15 @@ function renderApp() {
       ${renderProblem(content.problem)}
       ${renderCapabilities(content.capabilities)}
       ${renderHowItWorks(content.process)}
-      ${renderPricing(content.pricing, content.cta.requestDemo.replace('?src=general', ''))}
+      ${renderPricing(content.pricing)}
       ${renderFaq(content.faq, content.cta.requestDemo)}
       ${renderContact(content.contact)}
     </main>
     ${renderFooter(content)}
+    <dialog class="walkthrough-modal" id="walkthrough-modal" aria-label="Product walkthrough">
+      <button class="walkthrough-close" type="button" data-close-walkthrough aria-label="Close walkthrough">×</button>
+      <div class="walkthrough-content"></div>
+    </dialog>
   `;
 }
 
@@ -108,8 +114,53 @@ function setupRevealAnimation() {
   targets.forEach((target) => observer.observe(target));
 }
 
+function setupTrialCtas() {
+  document.querySelectorAll('[data-action="start-trial"]').forEach((node) => {
+    node.addEventListener('click', async (event) => {
+      event.preventDefault();
+      const plan = node.dataset.plan || 'control';
+      const source = node.dataset.source || 'unknown';
+
+      try {
+        await startCheckout({ plan, source });
+      } catch (error) {
+        window.alert('Unable to start checkout right now. Please try again or request a demo.');
+      }
+    });
+  });
+}
+
+function setupWalkthrough() {
+  const modal = document.querySelector('#walkthrough-modal');
+  const contentNode = modal?.querySelector('.walkthrough-content');
+  if (!modal || !contentNode) return;
+
+  const close = () => {
+    if (modal.open) modal.close();
+  };
+
+  modal.querySelector('[data-close-walkthrough]')?.addEventListener('click', close);
+  modal.addEventListener('click', (event) => {
+    if (event.target === modal) close();
+  });
+
+  document.querySelectorAll('[data-action="watch-walkthrough"]').forEach((node) => {
+    node.addEventListener('click', (event) => {
+      if (!config.walkthroughVideoUrl) {
+        return;
+      }
+
+      event.preventDefault();
+      contentNode.innerHTML = `<iframe src="${config.walkthroughVideoUrl}" title="FieldCommand walkthrough video" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>`;
+      modal.showModal();
+    });
+  });
+}
+
 renderApp();
 setupNavToggle();
 setupBillingToggle();
 setupContactForm();
 setupRevealAnimation();
+setupTrialCtas();
+setupWalkthrough();
