@@ -1,4 +1,4 @@
-export function renderNav({ brand, nav, cta }) {
+export function renderNav({ brand, nav }) {
   const links = nav.links
     .map((link) => `<li><a href="${link.href}">${link.label}</a></li>`)
     .join('');
@@ -20,7 +20,7 @@ export function renderNav({ brand, nav, cta }) {
           <ul id="nav-menu" class="nav-menu">
             ${links}
             <li class="nav-cta-item">
-              <a class="btn btn-primary" href="${cta.requestDemo}">Request demo</a>
+              <a class="btn btn-primary" href="#pricing" data-action="start-trial" data-plan="control" data-source="nav-primary">Start free trial</a>
             </li>
           </ul>
         </nav>

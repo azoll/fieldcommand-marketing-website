@@ -840,3 +840,34 @@ textarea {
     font-size: 0.92rem;
   }
 }
+
+.walkthrough-modal {
+  width: min(900px, calc(100% - 2rem));
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1.2rem;
+  background: #0f141d;
+}
+
+.walkthrough-modal::backdrop {
+  background: rgba(0, 0, 0, 0.68);
+}
+
+.walkthrough-content iframe {
+  width: 100%;
+  min-height: 420px;
+  border: 0;
+  border-radius: 10px;
+}
+
+.walkthrough-close {
+  margin-left: auto;
+  display: block;
+  background: transparent;
+  border: 1px solid var(--line);
+  color: #fff;
+  border-radius: 8px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}

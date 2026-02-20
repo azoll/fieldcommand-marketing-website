@@ -21,6 +21,18 @@
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <div id="app"></div>
+    <script>
+      window.FIELD_COMMAND_CONFIG = {
+        apiBaseUrl: window.location.origin,
+        appOrigin: window.location.hostname === 'localhost' ? 'http://localhost:3000' : 'https://app.fieldcommand.io',
+        stripePriceIds: {
+          core: 'core',
+          control: 'control',
+          command: 'command'
+        },
+        walkthroughVideoUrl: ''
+      };
+    </script>
     <script type="module" src="./src/js/main.js"></script>
   </body>
 </html>

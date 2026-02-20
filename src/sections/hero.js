@@ -23,8 +23,8 @@ export function renderHero(hero) {
             <p class="hero-subtitle">${hero.subtitle}</p>
             <p class="hero-detail">${hero.detail}</p>
             <div class="hero-ctas">
-              <a class="btn btn-primary" href="${hero.primaryCta.href}">${hero.primaryCta.label}</a>
-              <a class="btn btn-secondary" href="${hero.secondaryCta.href}">${hero.secondaryCta.label}</a>
+              <a class="btn btn-primary" href="#pricing" data-action="${hero.primaryCta.action}" data-plan="${hero.primaryCta.plan}" data-source="hero-primary">${hero.primaryCta.label}</a>
+              <a class="btn btn-secondary" href="/walkthrough.html" data-action="${hero.secondaryCta.action}">${hero.secondaryCta.label}</a>
             </div>
             <p class="hero-trust">${hero.trustNote}</p>
           </div>
