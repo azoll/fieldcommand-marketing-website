@@ -21,7 +21,7 @@ export function renderCapabilities(items) {
             <h3 id="cap-${item.id}">${item.title}</h3>
             <p><strong class="capability-seat-inline">${leadSentence}</strong>${item.body}</p>
             <p class="fit"><em>${item.fit}</em></p>
-            <a class="btn btn-secondary" href="${item.cta}">Request demo</a>
+            <a class="btn btn-secondary" href="#pricing" data-action="start-trial" data-plan="${item.id}" data-source="capability-${item.id}">Start free trial</a>
           </div>
         </article>
       `;
