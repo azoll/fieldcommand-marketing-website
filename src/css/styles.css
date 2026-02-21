@@ -871,3 +871,54 @@ textarea {
   height: 32px;
   cursor: pointer;
 }
+
+.trial-success-page {
+  min-height: 100vh;
+  display: grid;
+  align-items: center;
+}
+
+.trial-success-card {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  box-shadow: 0 12px 32px rgba(8, 16, 30, 0.08);
+}
+
+.trial-success-card h1 {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+}
+
+.trial-success-note,
+.trial-success-debug {
+  margin-top: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.trial-success-form {
+  margin-top: 1.4rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.trial-success-form label {
+  font-weight: 700;
+}
+
+.trial-success-form input {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font: inherit;
+  padding: 0.75rem 0.9rem;
+}
+
+.trial-success-status {
+  margin-top: 0.9rem;
+  color: var(--ink-soft);
+  min-height: 1.4rem;
+}
+
+.trial-success-status.is-error {
+  color: #9f2525;
+}

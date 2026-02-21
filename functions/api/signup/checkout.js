@@ -1,5 +1,6 @@
 const TRIAL_DAYS = 7;
-const APP_SUCCESS_PATH = '/finalize-signup?session_id={CHECKOUT_SESSION_ID}';
+const STRIPE_SUCCESS_URL = 'https://fieldcommand.io/trial/success?session_id={CHECKOUT_SESSION_ID}';
+const STRIPE_CANCEL_URL = 'https://fieldcommand.io/pricing?canceled=1';
 
 function json(body, status = 200) {
   return new Response(JSON.stringify(body), {
@@ -39,7 +40,6 @@ function getPriceIdForPlan(env, plan, billingCycle = 'monthly') {
 
 export async function onRequestPost(context) {
   const stripeApiKey = context.env.STRIPE_API_KEY;
-  const appOrigin = context.env.APP_ORIGIN || 'https://app.fieldcommand.io';
 
   if (!stripeApiKey) {
     return json({ error: 'Server is missing STRIPE_API_KEY.' }, 500);
@@ -61,13 +61,10 @@ export async function onRequestPost(context) {
     return json({ error: 'No Stripe price configured for selected plan.' }, 400);
   }
 
-  const successUrl = `${appOrigin.replace(/\/$/, '')}${APP_SUCCESS_PATH}`;
-  const cancelUrl = `${new URL(context.request.url).origin}/#pricing`;
-
   const payload = new URLSearchParams({
     mode: 'subscription',
-    success_url: successUrl,
-    cancel_url: cancelUrl,
+    success_url: STRIPE_SUCCESS_URL,
+    cancel_url: STRIPE_CANCEL_URL,
     'line_items[0][price]': stripePriceId,
     'line_items[0][quantity]': '1',
     'subscription_data[trial_period_days]': String(TRIAL_DAYS),

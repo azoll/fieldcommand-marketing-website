@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trial Started | FieldCommand</title>
+    <meta name="description" content="Your FieldCommand trial has started. Check your email to finish setup." />
+    <link rel="icon" type="image/png" sizes="32x32" href="/public/brand/FC Favicon V2 32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/css/tokens.css" />
+    <link rel="stylesheet" href="/src/css/styles.css" />
+  </head>
+  <body>
+    <main class="trial-success-page">
+      <section class="section">
+        <div class="container narrow">
+          <div class="trial-success-card">
+            <h1>Trial started. Check your email to finish setup.</h1>
+            <p class="trial-success-note" id="setup-delay-note" hidden>Setup may take a minute.</p>
+            <p class="trial-success-debug" id="session-id-debug" hidden></p>
+
+            <form id="resend-invite-form" class="trial-success-form" novalidate>
+              <label for="invite-email">Email</label>
+              <input id="invite-email" name="email" type="email" autocomplete="email" required />
+              <button type="submit" class="btn btn-primary">Resend invite</button>
+            </form>
+            <p id="resend-status" class="trial-success-status" role="status" aria-live="polite"></p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="/src/js/pages/trial-success.js"></script>
+  </body>
+</html>
