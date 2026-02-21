@@ -1,15 +1,11 @@
 const DEFAULT_TRIAL_DAYS = 7;
+const STRIPE_SUCCESS_URL = 'https://fieldcommand.io/trial/success?session_id={CHECKOUT_SESSION_ID}';
+const STRIPE_CANCEL_URL = 'https://fieldcommand.io/pricing?canceled=1';
 
 function json(response, status, payload) {
   response.statusCode = status;
   response.setHeader('Content-Type', 'application/json');
   response.end(JSON.stringify(payload));
-}
-
-function getOrigin(request) {
-  const proto = request.headers['x-forwarded-proto'] || 'https';
-  const host = request.headers['x-forwarded-host'] || request.headers.host;
-  return `${proto}://${host}`;
 }
 
 function resolvePriceId(planOrPriceId, map) {
@@ -40,18 +36,14 @@ module.exports = async function handler(request, response) {
     return json(response, 400, { error: 'A plan or Stripe priceId is required' });
   }
 
-  const appOrigin = body.appOrigin || process.env.APP_ORIGIN || getOrigin(request);
-  const successUrl = `${appOrigin.replace(/\/$/, '')}/signup/complete?session_id={CHECKOUT_SESSION_ID}`;
-  const cancelUrl = `${(body.siteOrigin || getOrigin(request)).replace(/\/$/, '')}/#pricing`;
-
   const payload = new URLSearchParams({
     mode: 'subscription',
-    success_url: successUrl,
-    cancel_url: cancelUrl,
+    success_url: STRIPE_SUCCESS_URL,
+    cancel_url: STRIPE_CANCEL_URL,
     'line_items[0][price]': priceId,
     'line_items[0][quantity]': '1',
     'subscription_data[trial_period_days]': String(DEFAULT_TRIAL_DAYS),
-    'allow_promotion_codes': 'true'
+    allow_promotion_codes: 'true'
   });
 
   if (body.email) {
