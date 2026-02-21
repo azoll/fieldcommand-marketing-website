@@ -1,39 +1,28 @@
-# Trial checkout environment variables
+# Cloudflare Pages Stripe configuration
 
-To make **Start free trial** route correctly to Stripe, you must configure the checkout API runtime and the frontend runtime config.
+Configure all Stripe values in **Cloudflare Pages → Project Settings → Variables and Secrets**.
+Do not store real secrets or real Stripe price IDs in this repository.
 
-## Required backend variables
+## Required for checkout function (`POST /api/signup/checkout`)
 
-- `STRIPE_SECRET_KEY`
-  - Stripe secret key used by `api/signup/checkout.js`.
-- `STRIPE_PRICE_IDS`
-  - JSON map from plan key to real Stripe Price IDs.
-  - Prod example: `{"core":"price_live_core","control":"price_live_control","command":"price_live_command"}`
-  - Dev example: `{"core":"price_test_core","control":"price_test_control","command":"price_test_command"}`
 - `APP_ORIGIN`
-  - Where Stripe should redirect after checkout.
-  - Prod: `https://app.fieldcommand.io`
-  - Dev: `http://localhost:3000`
+- `STRIPE_API_KEY`
+- `STRIPE_PRICE_CORE_MONTHLY`
+- `STRIPE_PRICE_CONTROL_MONTHLY`
+- `STRIPE_PRICE_COMMAND_MONTHLY`
 
-## Required frontend variable
+## Optional checkout variables (if annual billing is enabled)
 
-- `API_BASE_URL`
-  - Must point to the deployed marketing site/API host that serves `/api/signup/checkout`.
-  - Prod example: `https://www.fieldcommand.io`
-  - Dev example: `http://localhost:8080`
+- `STRIPE_PRICE_CORE_ANNUAL`
+- `STRIPE_PRICE_CONTROL_ANNUAL`
+- `STRIPE_PRICE_COMMAND_ANNUAL`
 
-## Runtime injection
+## Required for webhook function (`POST /api/stripe/webhook`)
 
-`index.html`, `walkthrough.html`, and `who-its-for.html` expose `window.FIELD_COMMAND_CONFIG`.
-Set these at deploy time:
+- `STRIPE_WEBHOOK_SECRET`
 
-```js
-window.FIELD_COMMAND_CONFIG = {
-  apiBaseUrl: process.env.API_BASE_URL,
-  appOrigin: process.env.APP_ORIGIN,
-  stripePriceIds: JSON.parse(process.env.STRIPE_PRICE_IDS || '{}'),
-  walkthroughVideoUrl: ''
-};
-```
+## Endpoint summary
 
-If `STRIPE_PRICE_IDS`, `STRIPE_SECRET_KEY`, or `APP_ORIGIN` are missing/incorrect, trial checkout will fail.
+- Checkout: `POST /api/signup/checkout` (Pages Function)
+- Webhook: `POST /api/stripe/webhook` (Pages Function)
+- Webhook health check: `GET /api/stripe/webhook` returns `ok`
